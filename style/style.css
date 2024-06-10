@@ -1,0 +1,17 @@
+.main_back{
+    background-image: url(../img/To-do-img.jpeg);
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.to_do{
+    background-color: #d6a6b7af;
+    width: 700px;
+    border-radius: 20px;
+    height: auto;
+}
+.bor{
+    border: 2px solid black;
+}
