@@ -1,3 +1,17 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c6718faf;
+}
+
 .main_back{
     background-image: url(../img/To-do-img.jpeg);
     width: 100%;
@@ -14,4 +28,54 @@
 }
 .bor{
     border: 2px solid black;
+}
+#input_first{
+    outline: none;
+    border-top :none;
+    border-left: none;
+    border-right: none;
+    background: none;
+    font-size: 20px;
+    border: none;
+    color: palevioletred;
+    font-weight: 500;
+    width: 70%;
+    height: 50px;
+    background-color: white;
+    border-radius: 30px;
+}
+#input_first::-webkit-input-placeholder {
+    color: palevioletred;
+}
+
+#btn1{
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: palevioletred;
+    font-weight: 500;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.div_li{
+    background-color: white;
+    border-radius: 30px;
+    color: palevioletred;
+    font-weight: 500;
+    height: 50px;
+    width: 70%;
+    border: 1px solid black;
+}
+.divE{
+    font-weight: 500;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid black;
+}
+#paragraph{
+    width: 100%;
 }
