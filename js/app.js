@@ -1,27 +1,26 @@
 var input_first = document.getElementById(`input_first`)
-var paragraph = document.getElementById(`paragraph`)
-var btn1 = document.getElementById(`btn1`)
+var div_list = document.getElementById(`div_list`)
+var btn_add = document.getElementById(`btn_add`)
 var error = document.getElementById(`error`)
-var divE = document.getElementById(`divE`)
+var count = `0`
 
 function add() {
     if (input_first.value == ``) {
-        error.innerText = `Please enter some text ❌`
-        divE.classList.add(`divE`)
-        setTimeout(() => {
-            error.innerText = ``
-            divE.classList.remove(`divE`)
-        }, 3000);
+        Swal.fire("Please enter some text ❌");
+       
     }
     else {
-        paragraph.innerHTML += `<div class='div_li my-5 mx-4'><p id = 'para'>${input_first.value} <i class="bi bi-pencil-square edit"></i><i class="bi bi-trash-fill delete"></i> </p></div>`
+        ++count
+        var input_value = `${input_first.value.slice(0, 1).toUpperCase()}${input_first.value.slice(1)}`
+        div_list.innerHTML += `<div class='d-flex justify-content-center  gap-2 py-3'><div class='list_item  d-flex align-items-center px-4'><p class='mb-0 list_para'>${count}.  ${input_value}</p></div><button id="edit">Edit</button><button id="delete">Delete</button></div>`
         input_first.value = ``
     }
 
-    paragraph.addEventListener(`click`, function (e) {
-        if (e.target.classList.contains(`edit`)) {
-            e.target.parentElement.innerHTML = `<input type="text" id="input_second" placeholder="Enter text"> <button id = 'save'><i class="bi bi-clipboard-check-fill"></i></button>`
-            var input_second = document.getElementById(`input_second`)
+    div_list.addEventListener(`click`, function (e) {
+        if (e.target.id ==`edit`) {
+            // e.target.parentElement.parentElement.parentElement.innerHTML = `<div class='d-flex justify-content-center  gap-2 py-3'><div class='list_item  d-flex align-items-center px-4'><input type="text" id="input_second" placeholder="Enter text"></div> <button id = 'save'>Save</button></div>`
+            e.target.parentElement.parentElement.innerHTML = `<div class='d-flex justify-content-center  gap-2 py-3'><div class='list_item  d-flex align-items-center px-4'><input type="text" id="input_second" placeholder="Enter text"></div><button id="edit">Edit</button><button id="delete">Delete</button></div>`
+            var input_second= document.getElementById(`input_second`)
             var save = document.getElementById(`save`)
             function edit() {
                 if (input_second.value == ``) {
@@ -33,7 +32,8 @@ function add() {
                     }, 3000);
                 }
                 else {
-                    input_second.parentElement.innerHTML = `${input_second.value} <i class="bi bi-pencil-square edit"></i><i class="bi bi-trash-fill delete"></i> </li>`
+                    input_value = `${input_second.value.slice(0, 1).toUpperCase()}${input_second.value.slice(1)}`
+                    input_second.parentElement.parentElement.innerHTML = `<div class='d-flex justify-content-center  gap-2 py-3'><div class='list_item  d-flex align-items-center px-4'><p class='mb-0 list_para'>${count}.  ${input_value}</p></div><button id="edit">Edit</button><button id="delete">Delete</button></div>`
                 }
             }
             input_second.addEventListener(`keypress`, function (e) {
@@ -54,7 +54,7 @@ function add() {
 
 
 
-btn1.addEventListener(`click`, function () {
+btn_add.addEventListener(`click`, function () {
     add()
 })
 
@@ -66,7 +66,10 @@ input_first.addEventListener(`keypress`, function (e) {
 
 // activ input when I press i
 document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && e.key ==`i`) {
+    if (e.ctrlKey && e.key == `i`) {
         input_first.focus();
     }
 })
+
+
+

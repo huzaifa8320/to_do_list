@@ -1,81 +1,108 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-:-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #c6718faf;
-}
-
-.main_back{
-    background-image: url(../img/To-do-img.jpeg);
+.main_back {
+    /* background-image: url(./img/To-do-img.jpeg); */
+    background-color: #ECA900;
     width: 100%;
     height: 100vh;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
 }
-.to_do{
-    background-color: #d6a6b7af;
-    width: 700px;
-    border-radius: 20px;
-    height: auto;
-}
-.bor{
-    border: 2px solid black;
-}
-#input_first{
+
+.input_first_div {
     outline: none;
-    border-top :none;
+    border-top: none;
     border-left: none;
     border-right: none;
     background: none;
     font-size: 20px;
     border: none;
-    color: palevioletred;
+    color: #ECA900;
     font-weight: 500;
-    width: 70%;
+    width: 50%;
     height: 50px;
     background-color: white;
     border-radius: 30px;
 }
-#input_first::-webkit-input-placeholder {
-    color: palevioletred;
+
+.to_do {
+    width: 700px;
+    border-radius: 20px;
+    height: auto;
+}
+.input_first{
+    width: 90%;
+    outline: none;
+    border: none;
+    color: #ECA900;
+    font-weight: 500;
 }
 
-#btn1{
+#input_second{
+    width: 90%;
+    outline: none;
+    border: none;
+    color: #ECA900;
+    font-weight: 500;
+}
+.input_first::-webkit-input-placeholder {
+    color: #ECA900;
+    font-weight: 500;
+}
+#btn_add{
     width: 130px;
     height: 50px;
     border: none;
     background-color: white;
-    color: palevioletred;
+    color: #ECA900;
     font-weight: 500;
     border-radius: 30px;
     font-size: 17px;
 }
-.div_li{
+#edit{
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: #ECA900;
+    font-weight: 500;
+    border-radius: 30px;
+    font-size: 17px;
+}
+#save{
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: #ECA900;
+    font-weight: 500;
+    border-radius: 30px;
+    font-size: 17px;
+}
+#delete{
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: #ECA900;
+    font-weight: 500;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.bor{
+    border: 2px solid black;
+}
+.list_item{
+    width: 50%;
+    height: auto;
     background-color: white;
     border-radius: 30px;
-    color: palevioletred;
     font-weight: 500;
-    height: 50px;
-    width: 70%;
-    border: 1px solid black;
+    color: #ECA900;
+    font-size: 20px;
 }
-.divE{
-    font-weight: 500;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: 1px solid black;
-}
-#paragraph{
+.list_para{
     width: 100%;
+    height: auto;
+    word-break: break-word;
 }
+
