@@ -3,6 +3,7 @@ var div_list = document.getElementById(`div_list`)
 var btn_add = document.getElementById(`btn_add`)
 var btn_dell = document.getElementById(`btn_dell`)
 var count = `0`
+input_first.focus();
 
 function add() {
     if (input_first.value == ``) {
