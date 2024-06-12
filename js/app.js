@@ -35,6 +35,7 @@ function add() {
                     var input_second = document.getElementById(`input_second`)
                     input_second.value = `${siblingDiv_valu}`
                     var save = document.getElementById(`save`)
+                    input_second.focus();
 
                     function edit() {
                         if (input_second.value == ``) {
