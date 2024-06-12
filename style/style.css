@@ -48,6 +48,10 @@
     color: #ECA900;
     font-weight: 500;
 }
+#input_second::-webkit-input-placeholder {
+    color: #ECA900;
+    font-weight: 500;
+}
 #btn_add{
     width: 130px;
     height: 50px;
@@ -58,7 +62,26 @@
     border-radius: 30px;
     font-size: 17px;
 }
-#edit{
+#btn_add:hover,
+#btn_dell:hover,
+.edit:hover,
+.delete:hover,
+#save:hover{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.379);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+#btn_dell{
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: #ECA900;
+    font-weight: 500;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.edit{
     width: 130px;
     height: 50px;
     border: none;
@@ -69,7 +92,7 @@
     font-size: 17px;
 }
 #save{
-    width: 130px;
+    width: 260px;
     height: 50px;
     border: none;
     background-color: white;
@@ -78,7 +101,7 @@
     border-radius: 30px;
     font-size: 17px;
 }
-#delete{
+.delete{
     width: 130px;
     height: 50px;
     border: none;
