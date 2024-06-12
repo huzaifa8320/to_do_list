@@ -9,41 +9,75 @@ function add() {
         Swal.fire("Please enter some text ❌");
 
     }
+
     else {
         ++count
         var input_first_value = `${input_first.value.slice(0, 1).toUpperCase()}${input_first.value.slice(1)}`
-        div_list.innerHTML += `<div class='d-flex justify-content-center  gap-2 py-3'><div class='list_item  d-flex align-items-center px-4'><p class='mb-0 list_para' id='para'>${count}.  ${input_first_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button></div>`
+        div_list.innerHTML += `<div class='justify-content-center gap-2 py-2 div3 mb-5'><div class='list_item  d-flex align-items-center'><p class='mb-0 list_para' id='para'>${count}.  ${input_first_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button></div>`
         input_first.value = ``
     }
 
     div_list.addEventListener(`click`, function (e) {
         if (e.target.classList.contains(`edit`)) {
-            e.target.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center px-4'><input type="text" id="input_second" placeholder="Enter text"></div><button id='save'>Save</button>`
-            var input_second = document.getElementById(`input_second`)
-           
-            var save = document.getElementById(`save`)
-            function edit() {
-                if (input_second.value == ``) {
-                    Swal.fire("Please enter some text ❌");
-                }
-                else {
-                    ++count
-                    var input_second_value = `${input_second.value.slice(0, 1).toUpperCase()}${input_second.value.slice(1)}`
-                    input_second.parentElement.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center px-4'><p class='mb-0 list_para'>${count}.  ${input_second_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button>`
-                }
-            }
-            input_second.addEventListener(`keypress`, function (e) {
-                if (e.key == 'Enter') {
-                    edit()
-                }
+            Swal.fire({
+                title: "Do you want to edit this list?",
+                showDenyButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: `No`
             })
-            save.addEventListener(`click`, function () {
-                edit()
-            })
+
+            .then((result) => {
+                if (result.isConfirmed) {
+                    var siblingDiv = e.target.previousElementSibling;
+                    var siblingDiv_valu = siblingDiv.querySelector(`.list_para`).innerText.slice(2);
+                    console.log(siblingDiv_valu);
+                    e.target.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><input type="text" id="input_second" placeholder="Enter text"></div><button id='save'>Save</button>`
+                    var input_second = document.getElementById(`input_second`)
+                    input_second.value = `${siblingDiv_valu}`
+                    var save = document.getElementById(`save`)
+
+                    function edit() {
+                        if (input_second.value == ``) {
+                            Swal.fire("Please enter some text ❌");
+                        }
+                        else {
+                            ++count
+                            var input_second_value = `${input_second.value.slice(0, 1).toUpperCase()}${input_second.value.slice(1)}`
+                            input_second.parentElement.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><p class='mb-0 list_para'>${count}.  ${input_second_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button>`
+                        }
+                    }
+
+                    input_second.addEventListener(`keypress`, function (e) {
+                        if (e.key == 'Enter') {
+                            edit()
+                        }
+                    })
+
+                    save.addEventListener(`click`, function () {
+                        edit()
+                    })
+                }
+            });
+
+
+
+
         }
+
         else if (e.target.classList.contains('delete')) {
-            e.target.parentElement.remove()
+            Swal.fire({
+                title: "Do you want to delete this list?",
+                showDenyButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: `No`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.target.parentElement.remove()
+                }
+            });
+
         }
+
     })
 
 }
@@ -68,8 +102,22 @@ document.addEventListener('keydown', function (e) {
     }
 })
 
-btn_dell.addEventListener(`click` , function(e){
-    div_list.innerHTML = ``
-    count = 0
+btn_dell.addEventListener(`click`, function (e) {
+    if (div_list.innerHTML == ``) {
+        Swal.fire("You have no list item!");
+    }
+    else {
+        Swal.fire({
+            title: "Do you want to delete To-do list?",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: `No`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                div_list.innerHTML = ``
+                count = 0
+            }
+        });
+    }
 })
 

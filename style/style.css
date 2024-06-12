@@ -1,5 +1,10 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 .main_back {
-    /* background-image: url(./img/To-do-img.jpeg); */
     background-color: #ECA900;
     width: 100%;
     height: 100vh;
@@ -24,12 +29,31 @@
     border-radius: 30px;
 }
 
+.fixed {
+    position: sticky;
+    top: 0px;
+    background-color: #ECA900;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 1rem;
+}
+
 .to_do {
-    width: 700px;
+    width: 630px;
     border-radius: 20px;
     height: auto;
 }
-.input_first{
+
+.input_first {
+    width: 90%;
+    outline: none;
+    border: none;
+    color: #ECA900;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#input_second {
     width: 90%;
     outline: none;
     border: none;
@@ -37,84 +61,92 @@
     font-weight: 500;
 }
 
-#input_second{
-    width: 90%;
-    outline: none;
-    border: none;
-    color: #ECA900;
-    font-weight: 500;
-}
 .input_first::-webkit-input-placeholder {
     color: #ECA900;
     font-weight: 500;
 }
+
 #input_second::-webkit-input-placeholder {
     color: #ECA900;
     font-weight: 500;
 }
-#btn_add{
-    width: 130px;
+
+#btn_add {
+    width: 140px;
     height: 50px;
     border: none;
-    background-color: white;
-    color: #ECA900;
+    background-color: #ECA900;
+    color: white;
     font-weight: 500;
     border-radius: 30px;
-    font-size: 17px;
+    font-size: 20px;
 }
+
 #btn_add:hover,
 #btn_dell:hover,
 .edit:hover,
 .delete:hover,
-#save:hover{
+#save:hover {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.379);
     transform: scale(1.05);
     transition: 0.3s;
 }
-#btn_dell{
+
+#btn_dell {
     width: 130px;
     height: 50px;
     border: none;
-    background-color: white;
-    color: #ECA900;
+    background-color: #ECA900;
+    color: white;
     font-weight: 500;
     border-radius: 30px;
-    font-size: 17px;
+    font-size: 20px;
 }
-.edit{
+
+.edit {
     width: 130px;
     height: 50px;
     border: none;
-    background-color: white;
-    color: #ECA900;
+    background-color: #ECA900;
+    color: white;
     font-weight: 500;
     border-radius: 30px;
-    font-size: 17px;
+    font-size: 20px;
 }
-#save{
+
+#save {
     width: 260px;
     height: 50px;
     border: none;
-    background-color: white;
-    color: #ECA900;
+    background-color: #ECA900;
+    color: white;
     font-weight: 500;
     border-radius: 30px;
-    font-size: 17px;
+    font-size: 20px;
 }
-.delete{
+
+.delete {
     width: 130px;
     height: 50px;
     border: none;
-    background-color: white;
-    color: #ECA900;
+    background-color: #ECA900;
+    color: white;
     font-weight: 500;
     border-radius: 30px;
-    font-size: 17px;
+    font-size: 20px;
 }
-.bor{
+
+.bor {
     border: 2px solid black;
 }
-.list_item{
+
+.div3 {
+    background-color: white;
+    border-radius: 40px;
+    display: flex;
+}
+
+.list_item {
     width: 50%;
     height: auto;
     background-color: white;
@@ -122,10 +154,63 @@
     font-weight: 500;
     color: #ECA900;
     font-size: 20px;
+    padding-left: 1rem;
 }
-.list_para{
+
+.list_para {
     width: 100%;
     height: auto;
     word-break: break-word;
 }
 
+.new {
+    position: static;
+    top: 200px;
+}
+
+.div1 {
+    background-color: white;
+    border-radius: 40px;
+}
+
+.para1{
+    color: white;
+    font-weight: 500;
+    font-size: 45px;
+}
+@media(max-width:630px){
+    .div3{
+        display: block;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .list_item{
+        width: 100%;
+        padding-left: 0px;
+        margin-bottom: 10px;
+    }
+    .to_do{
+        padding: 0px 5px 0px 5px;
+    }
+    .div1{
+        border-radius: 10px;
+    }
+    .edit,.delete,#save{
+        width: 120px;   
+        height: 40px;
+        font-size: 17px;
+        margin-right: 10px;
+    }
+    #btn_add,#btn_dell{
+        width: 130px;
+        height: 40px;
+        font-size: 15px;
+        padding: 0px 2px 0px 2px;
+    }
+    .input_first{
+        font-size: 17px;
+    }
+    .fixed{
+        margin-bottom: 0px;
+    }
+}
