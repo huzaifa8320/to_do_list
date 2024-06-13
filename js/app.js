@@ -31,10 +31,11 @@ function add() {
                 if (result.isConfirmed) {
                     var siblingDiv = e.target.previousElementSibling;
                     var siblingDiv_valu = siblingDiv.querySelector(`.list_para`).innerText;
-                    console.log(siblingDiv_valu);
+                    var numsiblingDiv_valu = siblingDiv_valu.slice(0,3)
+                    var slice_siblingDiv_valu = siblingDiv_valu.slice(3)
                     e.target.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><input type="text" id="input_second" placeholder="Enter text"></div><button id='save'>Save</button>`
                     var input_second = document.getElementById(`input_second`)
-                    input_second.value = `${siblingDiv_valu}`
+                    input_second.value = `${slice_siblingDiv_valu}`
                     var save = document.getElementById(`save`)
                     input_second.focus();
 
@@ -44,7 +45,7 @@ function add() {
                         }
                         else {
                             var input_second_value = `${input_second.value.slice(0, 1).toUpperCase()}${input_second.value.slice(1)}`
-                            input_second.parentElement.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><p class='mb-0 list_para'>${siblingDiv_valu.slice(0,2)}  ${input_second_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button>`
+                            input_second.parentElement.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><p class='mb-0 list_para'>${numsiblingDiv_valu}${input_second_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button>`
                         }
                     }
 
@@ -121,4 +122,3 @@ btn_dell.addEventListener(`click`, function (e) {
         });
     }
 })
-
