@@ -30,7 +30,7 @@ function add() {
             .then((result) => {
                 if (result.isConfirmed) {
                     var siblingDiv = e.target.previousElementSibling;
-                    var siblingDiv_valu = siblingDiv.querySelector(`.list_para`).innerText.slice(2);
+                    var siblingDiv_valu = siblingDiv.querySelector(`.list_para`).innerText;
                     console.log(siblingDiv_valu);
                     e.target.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><input type="text" id="input_second" placeholder="Enter text"></div><button id='save'>Save</button>`
                     var input_second = document.getElementById(`input_second`)
@@ -43,9 +43,8 @@ function add() {
                             Swal.fire("Please enter some text ❌");
                         }
                         else {
-                            ++count
                             var input_second_value = `${input_second.value.slice(0, 1).toUpperCase()}${input_second.value.slice(1)}`
-                            input_second.parentElement.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><p class='mb-0 list_para'>${count}.  ${input_second_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button>`
+                            input_second.parentElement.parentElement.innerHTML = `<div class='list_item  d-flex align-items-center'><p class='mb-0 list_para'>${siblingDiv_valu.slice(0,2)}  ${input_second_value}</p></div><button class="edit">Edit</button><button class="delete">Delete</button>`
                         }
                     }
 
